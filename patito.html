@@ -1,285 +1,226 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Patricio 🤍</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Patricio 🤍</title>
 
-        body {
-            background-color: #f0e6ff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            overflow-x: hidden;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        /* --- ESTILOS DEL SOBRE INTERACTIVO --- */
-        #contenedor-sobre {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.8s ease;
-        }
+body {
+    background: linear-gradient(135deg, #ffe6f0, #e6f0ff, #f7e6ff);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
 
-        .sobre {
-            width: 280px;
-            height: 180px;
-            background-color: #ffccd5;
-            position: relative;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+/* SOBRE */
+#contenedor-sobre {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
-            .sobre:hover {
-                transform: scale(1.05);
-            }
+.sobre {
+    width: 280px;
+    height: 180px;
+    background: linear-gradient(135deg, #ffd6e0, #ffc2d1);
+    position: relative;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    cursor: pointer;
+}
 
-            .sobre::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                border-left: 140px solid transparent;
-                border-right: 140px solid transparent;
-                border-top: 100px solid #ffb3c1;
-                transform-origin: top;
-                transition: transform 0.5s ease 0.3s;
-                z-index: 3;
-            }
+.sobre::before {
+    content:'';
+    position:absolute;
+    top:0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:100px solid #ffb3c6;
+}
 
-        .corazon-cierre {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 40px;
-            color: #ff4d6d;
-            z-index: 4;
-            animation: latido 1.2s infinite;
-        }
+.corazon-cierre {
+    position:absolute;
+    top:45%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:40px;
+    animation: latido 1.2s infinite;
+}
 
-        .texto-sobre {
-            margin-top: 25px;
-            font-size: 1.2rem;
-            color: #5e503f;
-            font-weight: bold;
-            text-align: center;
-            background: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+.texto-sobre {
+    margin-top:20px;
+    background:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    color:#7a5c61;
+}
 
-        .sobre.abierto::before {
-            transform: rotateX(180deg);
-            z-index: 1;
-        }
+/* CARTA */
+#carta-contenido {
+    display:none;
+    max-width:480px;
+    background:white;
+    padding:25px;
+    border-radius:24px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
+}
 
-        /* --- ESTILOS DE LA CARTA --- */
-        #carta-contenido {
-            display: none;
-            width: 100%;
-            max-width: 450px;
-            background: white;
-            border-radius: 24px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(162, 123, 222, 0.2);
-            text-align: center;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease-out;
-        }
+#carta-contenido.mostrar {
+    opacity:1;
+    transform:translateY(0);
+}
 
-            #carta-contenido.mostrar {
-                display: block;
-                opacity: 1;
-                transform: translateY(0);
-            }
+.titulo {
+    font-size:1.6rem;
+    color:#6b4e57;
+    margin-bottom:10px;
+}
 
-        .titulo {
-            font-size: 1.6rem;
-            color: #4a3e3d;
-            margin-bottom: 5px;
-        }
+.subtitulo {
+    font-size:0.9rem;
+    color:#a58b92;
+    letter-spacing:1px;
+    margin-bottom:15px;
+}
 
-        .subtitulo {
-            font-size: 0.9rem;
-            color: #a39391;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
+.parrafo {
+    color:#5c4a4f;
+    margin:20px 0;
+    line-height:1.6;
+    text-align:justify;
+}
 
-        .imagen-pucca {
-            width: 100%;
-            max-width: 320px;
-            border-radius: 16px;
-            margin: 15px auto;
-            display: block;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
+.imagen-pucca {
+    width:100%;
+    border-radius:16px;
+    margin:15px 0;
+}
 
-        .parrafo {
-            font-size: 1.05rem;
-            color: #5c5150;
-            line-height: 1.6;
-            margin: 20px 0;
-            text-align: justify;
-        }
+/* BOTÓN */
+.btn-mensaje {
+    background: linear-gradient(135deg,#ff8fab,#ffb3c6);
+    border:none;
+    color:white;
+    padding:12px 28px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:15px;
+}
 
-        .corazon-separador {
-            color: #d1c4e9;
-            font-size: 1.5rem;
-            margin: 15px 0;
-        }
+.contenedor-sorpresa {
+    margin-top:15px;
+    background:#fff0f5;
+    padding:15px;
+    border-radius:16px;
+    border:1px dashed #ffb3c6;
+}
 
-        .btn-mensaje {
-            display: inline-block;
-            background-color: #ff4d6d;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
-            margin-top: 15px;
-            text-decoration: none;
-            transition: transform 0.2s, background-color 0.3s;
-        }
+#texto-sorpresa {
+    color:#d63384;
+    font-weight:600;
+}
 
-        /* Cuadro de mensajes interactivos */
-        .contenedor-sorpresa {
-            background-color: #fff0f3;
-            border: 2px dashed #ffb3c1;
-            border-radius: 16px;
-            padding: 15px;
-            margin-top: 20px;
-            min-height: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #texto-sorpresa {
-            font-size: 1.1rem;
-            color: #ff4d6d;
-            font-style: italic;
-            font-weight: 600;
-        }
-
-        @keyframes latido {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-
-            50% {
-                transform: translate(-50%, -50%) scale(1.15);
-            }
-
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-    </style>
+@keyframes latido {
+    0% {transform:translate(-50%,-50%) scale(1);}
+    50% {transform:translate(-50%,-50%) scale(1.15);}
+    100% {transform:translate(-50%,-50%) scale(1);}
+}
+</style>
 </head>
+
 <body>
 
-    <div id="contenedor-sobre">
-        <div class="sobre" onclick="abrirSobre()">
-            <div class="corazon-cierre">❤️</div>
-        </div>
-        <div class="texto-sobre">✨ Aplasta el sobre para abrirlo ✨</div>
+<!-- SOBRE -->
+<div id="contenedor-sobre">
+    <div class="sobre" onclick="abrirSobre()">
+        <div class="corazon-cierre">💗</div>
+    </div>
+    <div class="texto-sobre">✨ toca el sobre ✨</div>
+</div>
+
+<!-- CARTA -->
+<div id="carta-contenido">
+
+    <h1 class="titulo">🤍 Para Patricio</h1>
+    <div class="subtitulo">Un pequeño destello de cariño</div>
+
+    <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (1).jpeg">
+
+    <p class="parrafo">Coincidir contigo es mi parte favorita de los días. Gracias por estar y por hacer todo más bonito sin darte cuenta. ✨</p>
+
+    <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (2).jpeg">
+
+    <p class="parrafo">No sé qué nos espera, pero me gusta caminar contigo en este momento de la vida. 🌸</p>
+
+    <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (3).jpeg">
+
+    <p class="parrafo">Me gusta descubrirte en cada detalle pequeño, en cada risa, en cada silencio. 🧸</p>
+
+    <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37.jpeg">
+
+    <!-- MENSAJE FINAL BONITO -->
+    <p class="parrafo" style="text-align:center; font-weight:600;">
+        🤍 Y aunque no sé qué pase después, me alegra que seas parte de mi historia.  
+        Gracias por estar aquí, por quedarte, y por ser tú.
+    </p>
+
+    <div class="contenedor-sorpresa">
+        <p id="texto-sorpresa">Haz clic para ver mensajes secretos 💌</p>
     </div>
 
-    <div id="carta-contenido">
-        <h1 class="titulo">Para Patricio 🤍</h1>
-        <div class="subtitulo">De Sanyi para Patricio</div>
+    <button class="btn-mensaje" onclick="mostrarMensaje()">ver más ✨</button>
 
-        <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (1).jpeg" alt="Pucca 1">
+</div>
 
-        <h1 class="titulo">De Sanyi para Patricio</h1>
-        <div class="corazon-separador">🤍</div>
-        <div class="subtitulo">UN PEQUEÑO DESTELLO DE CARIÑO</div>
+<script>
 
-        <p class="parrafo">Coincidir contigo es mi parte favorita de los días. Gracias por estar, por la calma y por las risas... incluso cuando me sacas de quicio. ✨</p>
+function abrirSobre() {
+    document.querySelector('.sobre').style.transform = "scale(0.9)";
+    
+    setTimeout(() => {
+        document.getElementById('contenedor-sobre').style.display = "none";
+        const carta = document.getElementById('carta-contenido');
+        carta.style.display = "block";
+        setTimeout(() => carta.classList.add('mostrar'), 50);
+    }, 600);
+}
 
-        <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (2).jpeg" alt="Pucca 2">
+const mensajes = [
+"💗 Gracias por tenerme paciencia.",
+"✨ Eres de esas personas que se quedan en el corazón sin esfuerzo.",
+"🌷 Si algo bueno me pasó últimamente, eres tú.",
+"🌙 Me haces sentir en calma incluso en días raros.",
+"🤍 No eres cualquier persona para mí."
+];
 
-        <p class="parrafo">No sé qué nos depara el destino, ni hacia dónde vamos, pero aquí y ahora, me hace feliz caminar a tu lado. Que todo fluya a su propio tiempo. 🌙</p>
+let i = 0;
 
-        <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (3).jpeg" alt="Pucca 3">
+function mostrarMensaje() {
+    const texto = document.getElementById("texto-sorpresa");
 
-        <p class="parrafo">Me gusta descubrir tu mundo, tu forma de hablar y encontrarte en los detalles más inesperados. Te quiero más de lo que suelo decir. 🧸</p>
+    texto.innerText = mensajes[i];
+    i++;
 
-        <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37.jpeg" alt="Pucca 4">
+    if (i >= mensajes.length) i = 0;
+}
 
-        <div class="contenedor-sorpresa">
-            <p id="texto-sorpresa">Haz clic en el botón de abajo para leer mis notitas secretas... 💌</p>
-        </div>
+</script>
 
-        <button type="button" id="boton-interactivo" class="btn-mensaje" onclick="mostrarSiguienteMensaje()">un mensajito para ti ✨</button>
-    </div>
-
-    <script>
-        function abrirSobre() {
-            const sobre = document.querySelector('.sobre');
-            const contenedorSobre = document.getElementById('contenedor-sobre');
-            const carta = document.getElementById('carta-contenido');
-
-            sobre.classList.add('abierto');
-
-            setTimeout(() => {
-                contenedorSobre.style.display = 'none';
-                carta.style.display = 'block';
-                setTimeout(() => {
-                    carta.classList.add('mostrar');
-                }, 50);
-            }, 1000);
-        }
-
-        // Lista de mensajes secretos
-        const mensajes = [
-            "Eres mi pensamiento favorito en el día. 💖",
-            "Me encanta cuando sonríes, lo haces todo más bonito. ✨",
-            "Gracias por darme tu calma cuando más lo necesito. 🕊️",
-            "Siempre de Sanyi para Patricio... ¡Te quiero muchísimo! 🤍"
-        ];
-        
-        let indiceMensaje = 0;
-
-        function mostrarSiguienteMensaje() {
-            const elementoTexto = document.getElementById('texto-sorpresa');
-            const boton = document.getElementById('boton-interactivo');
-            
-            // Mostrar el mensaje actual
-            elementoTexto.textContent = mensajes[indiceMensaje];
-            
-            // Avanzar el índice
-            indiceMensaje++;
-            
-            // Cambiar el texto del botón dependiendo de en qué mensaje vamos
-            if (indiceMensaje < mensajes.length) {
-                boton.textContent = "¡Volver a aplastarlo para ver más! 💌";
-            } else {
-                boton.textContent = "Con mucho amor, Sanyi ❤️";
-                // Deshabilitar o reiniciar si deseas, aquí lo reiniciamos por si quiere leerlos de nuevo
-                indiceMensaje = 0; 
-            }
-        }
-    </script>
 </body>
 </html>
