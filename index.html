@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Patricio 🤍</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            max-width: 480px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            animation: aparecer 1.2s ease-out;
+        }
+
+        h1 {
+            color: #4a4e69;
+            font-size: 26px;
+            font-weight: 500;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            color: #9a8c98;
+            font-size: 12px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .img-pucca {
+            width: 100%;
+            max-height: 280px;
+            object-fit: contain;
+            border-radius: 16px;
+            margin: 15px 0;
+            transition: transform 0.4s ease;
+        }
+
+            .img-pucca:hover {
+                transform: scale(1.03);
+            }
+
+        .carta-texto {
+            color: #4a4e69;
+            font-size: 14.5px;
+            line-height: 1.8;
+            font-weight: 300;
+            text-align: justify;
+        }
+
+            .carta-texto p {
+                margin-bottom: 25px;
+                margin-top: 25px;
+            }
+
+        button {
+            background: linear-gradient(135deg, #ff4d6d, #ff758f);
+            color: white;
+            padding: 12px 40px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            outline: none;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+            button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+            }
+
+        .msg-box {
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        #msg {
+            color: #ff4d6d;
+            font-weight: 500;
+            font-size: 14.5px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 77, 109, 0.2);
+        }
+
+            #msg.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="WhatsApp Image 2026-07-04 at 02.51.30.jpeg" alt="Pucca pensando" class="img-pucca">
+
+        <h1>De Sanyi para Patricio 🤍</h1>
+        <div class="subtitle">UN PEQUEÑO DESTELLO DE CARIÑO</div>
+
+        <div class="carta-texto">
+            <p>Coincidir contigo es mi parte favorita de los días. Gracias por estar, por la calma y por las risas... incluso cuando me sacas de quicio. ✨</p>
+
+            <img src="WhatsApp Image 2026-07-04 at 02.51.30 (1).jpeg" alt="Pucca amarrando a Garu" class="img-pucca">
+
+            <p>No sé qué nos depara el destino, ni hacia dónde vamos, pero aquí y ahora, me hace feliz caminar a tu lado. Que todo fluya a su propio tiempo. 🌙</p>
+
+            <img src="WhatsApp Image 2026-07-04 at 02.51.31.jpeg" alt="Garu dándole un beso" class="img-pucca">
+
+            <p>Me gusta descubrir tu mundo, tu forma de hablar y encontrarte en los detalles más inesperados. Te quiero más de lo que suelo decir. 🧸</p>
+        </div>
+
+        <button onclick="mostrar()">un mensajito para ti ✨</button>
+
+        <div class="msg-box">
+            <div id="msg"></div>
+        </div>
+
+        <img src="WhatsApp Image 2026-07-04 at 02.51.31 (1).jpeg" alt="Muchos besos" class="img-pucca" style="max-height: 200px;">
+    </div>
+
+    <script>
+        const mensajes = [
+            "✨ Cada pensamiento de hoy lleva tu nombre.",
+            "🤍 Eres un lugar seguro en mis días.",
+            "🧸 Conectamos de una forma que me encanta.",
+            "🌙 Deseo que estés sonriendo justo ahora.",
+            "💌 Gracias por ser tú, sin filtros."
+        ];
+
+        function mostrar() {
+            const msgDiv = document.getElementById("msg");
+            msgDiv.classList.remove("show");
+
+            setTimeout(() => {
+                const random = mensajes[Math.floor(Math.random() * mensajes.length)];
+                msgDiv.innerHTML = random;
+                msgDiv.classList.add("show");
+            }, 200);
+        }
+    </script>
+</body>
+</html>
