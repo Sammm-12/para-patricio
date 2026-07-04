@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -12,7 +12,6 @@
     padding: 0;
 }
 
-/* ✅ ARREGLO IMPORTANTE: SCROLL */
 body {
     font-family: 'Segoe UI', sans-serif;
     min-height: 100vh;
@@ -24,20 +23,35 @@ body {
     background: linear-gradient(135deg, #ffe6f0, #e6f0ff, #f7e6ff);
 
     overflow-x: hidden;
-    overflow-y: auto; /* ✔ ahora sí puedes deslizar */
+    overflow-y: auto;
+
+    position: relative;
 }
 
-/* 💖 CORAZONES */
+/* 💖 CORAZONES ARREGLADOS */
 .heart {
-    position: absolute;
-    color: rgba(255, 105, 135, 0.25);
-    animation: float 10s linear infinite;
-    font-size: 20px;
+    position: fixed;
+    top: -10vh;
+    color: rgba(255, 105, 135, 0.35);
+    font-size: 18px;
+    animation: float 7s linear infinite;
+    pointer-events: none;
+    z-index: 0;
 }
 
+/* 💖 ANIMACIÓN ESTABLE */
 @keyframes float {
-    0% {transform: translateY(100vh) scale(0.8);}
-    100% {transform: translateY(-10vh) scale(1.2);}
+    0% {
+        transform: translateY(110vh) translateX(0) scale(0.8);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20vh) translateX(20px) scale(1.2);
+        opacity: 0;
+    }
 }
 
 /* 💌 SOBRE */
@@ -56,11 +70,6 @@ body {
     border-radius: 0 0 12px 12px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.12);
     cursor: pointer;
-    transition: 0.4s ease;
-}
-
-.sobre:hover {
-    transform: scale(1.03);
 }
 
 .sobre::before {
@@ -150,7 +159,6 @@ body {
     cursor:pointer;
     font-weight:bold;
     margin-top:15px;
-    transition: 0.3s;
 }
 
 .btn-mensaje:hover {
@@ -171,7 +179,7 @@ body {
     font-weight:600;
 }
 
-/* ✨ ANIMACIÓN */
+/* 💖 ANIMACIÓN LATIDO */
 @keyframes latido {
     0% {transform:translate(-50%,-50%) scale(1);}
     50% {transform:translate(-50%,-50%) scale(1.15);}
@@ -184,13 +192,13 @@ body {
 
 <!-- 💖 CORAZONES -->
 <script>
-for (let i = 0; i < 18; i++) {
+for (let i = 0; i < 20; i++) {
     const h = document.createElement("div");
     h.className = "heart";
     h.innerHTML = "🤍";
     h.style.left = Math.random() * 100 + "vw";
-    h.style.animationDuration = (6 + Math.random() * 6) + "s";
-    h.style.fontSize = (12 + Math.random() * 18) + "px";
+    h.style.animationDuration = (5 + Math.random() * 5) + "s";
+    h.style.fontSize = (12 + Math.random() * 20) + "px";
     document.body.appendChild(h);
 }
 </script>
@@ -207,25 +215,25 @@ for (let i = 0; i < 18; i++) {
 <div id="carta-contenido">
 
     <h1 class="titulo">🤍 Para Patricio</h1>
+
     <div class="subtitulo">Un pequeño destello de cariño</div>
 
     <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (1).jpeg">
 
-    <p class="parrafo">Coincidir contigo es mi parte favorita de los días. Gracias por estar y por hacer todo más bonito sin darte cuenta. ✨</p>
+    <p class="parrafo">Coincidir contigo es mi parte favorita de los días. ✨</p>
 
     <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (2).jpeg">
 
-    <p class="parrafo">No sé qué nos espera, pero me gusta caminar contigo en este momento de la vida. 🌸</p>
+    <p class="parrafo">Me gusta caminar contigo en este momento de la vida. 🌸</p>
 
     <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (3).jpeg">
 
-    <p class="parrafo">Me gusta descubrirte en cada detalle pequeño, en cada risa, en cada silencio. 🧸</p>
+    <p class="parrafo">Me gusta descubrirte en cada detalle. 🧸</p>
 
     <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37.jpeg">
 
     <p class="parrafo" style="text-align:center; font-weight:600;">
-        🤍 Y aunque no sé qué pase después, me alegra que seas parte de mi historia.  
-        Gracias por estar aquí, por quedarte, y por ser tú.
+        🤍 Gracias por estar en mi historia.
     </p>
 
     <div class="contenedor-sorpresa">
@@ -250,10 +258,11 @@ function abrirSobre() {
 }
 
 const mensajes = [
-"1. Me haces enojar pero tqm ❤️",
-"2. Gracias por soportarme mis cambios de humor JAAJAJA 🙈",
-"3. Espero te haya gustado 🫶🏼",
-"4. ¡Y ya deja de ser tan resabiado quieres! 😒"
+"Me haces enojar pero tqm ❤️",
+"Gracias por tenerme paciencia 🙈",
+"Espero que haya guste 🫶🏼",
+"¡Y ya deja de ser resabiado! 😒"
+"Besitos bebe❤️"
 ];
 
 let i = 0;
