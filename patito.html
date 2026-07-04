@@ -28,7 +28,7 @@ body {
     position: relative;
 }
 
-/* 💖 CORAZONES ARREGLADOS */
+/* 💖 CORAZONES */
 .heart {
     position: fixed;
     top: -10vh;
@@ -39,7 +39,6 @@ body {
     z-index: 0;
 }
 
-/* 💖 ANIMACIÓN ESTABLE */
 @keyframes float {
     0% {
         transform: translateY(110vh) translateX(0) scale(0.8);
@@ -161,10 +160,6 @@ body {
     margin-top:15px;
 }
 
-.btn-mensaje:hover {
-    transform: scale(1.05);
-}
-
 /* 💬 MENSAJE */
 .contenedor-sorpresa {
     margin-top:15px;
@@ -179,7 +174,7 @@ body {
     font-weight:600;
 }
 
-/* 💖 ANIMACIÓN LATIDO */
+/* 💖 ANIMACIÓN */
 @keyframes latido {
     0% {transform:translate(-50%,-50%) scale(1);}
     50% {transform:translate(-50%,-50%) scale(1.15);}
@@ -257,12 +252,13 @@ function abrirSobre() {
     }, 600);
 }
 
+/* ✔ ARREGLADO: coma faltante corregida */
 const mensajes = [
 "Me haces enojar pero tqm ❤️",
 "Gracias por tenerme paciencia 🙈",
-"Espero que haya guste🫶🏼",
-"¡Y ya deja de ser resabiado! 😒"
-"Besitos bebe❤️"
+"Espero que te haya gustado 🫶🏼",
+"¡Y ya deja de ser resabiado! 😒",
+"Besitos bebé ❤️"
 ];
 
 let i = 0;
