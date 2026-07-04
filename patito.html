@@ -19,12 +19,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-
     background: linear-gradient(135deg, #ffe6f0, #e6f0ff, #f7e6ff);
-
     overflow-x: hidden;
     overflow-y: auto;
-
     position: relative;
 }
 
@@ -40,17 +37,9 @@ body {
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(110vh) translateX(0) scale(0.8);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-20vh) translateX(20px) scale(1.2);
-        opacity: 0;
-    }
+    0% { transform: translateY(110vh) scale(0.8); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-20vh) scale(1.2); opacity: 0; }
 }
 
 /* 💌 SOBRE */
@@ -96,7 +85,6 @@ body {
     border-radius:20px;
     font-weight:bold;
     color:#7a5c61;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 /* 💌 CARTA */
@@ -107,31 +95,13 @@ body {
     padding:28px;
     border-radius:24px;
     text-align:center;
-
     box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-
-    opacity:0;
-    transform: scale(0.95) translateY(40px);
-    transition: 0.9s ease;
-    z-index: 3;
 }
 
-#carta-contenido.mostrar {
-    opacity:1;
-    transform: scale(1) translateY(0);
-}
-
-.titulo {
-    font-size:1.7rem;
-    color:#5a3e44;
-    margin-bottom:10px;
-}
-
-.subtitulo {
-    font-size:0.9rem;
-    color:#a58b92;
-    letter-spacing:1px;
-    margin-bottom:15px;
+.imagen-pucca {
+    width:100%;
+    border-radius:16px;
+    margin:15px 0;
 }
 
 .parrafo {
@@ -141,14 +111,7 @@ body {
     text-align:justify;
 }
 
-.imagen-pucca {
-    width:100%;
-    border-radius:16px;
-    margin:15px 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-/* 💌 BOTÓN */
+/* 💬 BOTÓN */
 .btn-mensaje {
     background: linear-gradient(135deg,#ff8fab,#ffb3c6);
     border:none;
@@ -160,7 +123,6 @@ body {
     margin-top:15px;
 }
 
-/* 💬 MENSAJE */
 .contenedor-sorpresa {
     margin-top:15px;
     background:#fff0f5;
@@ -173,32 +135,11 @@ body {
     color:#d63384;
     font-weight:600;
 }
-
-/* 💖 ANIMACIÓN */
-@keyframes latido {
-    0% {transform:translate(-50%,-50%) scale(1);}
-    50% {transform:translate(-50%,-50%) scale(1.15);}
-    100% {transform:translate(-50%,-50%) scale(1);}
-}
 </style>
 </head>
 
 <body>
 
-<!-- 💖 CORAZONES -->
-<script>
-for (let i = 0; i < 20; i++) {
-    const h = document.createElement("div");
-    h.className = "heart";
-    h.innerHTML = "🤍";
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.animationDuration = (5 + Math.random() * 5) + "s";
-    h.style.fontSize = (12 + Math.random() * 20) + "px";
-    document.body.appendChild(h);
-}
-</script>
-
-<!-- 💌 SOBRE -->
 <div id="contenedor-sobre">
     <div class="sobre" onclick="abrirSobre()">
         <div class="corazon-cierre">💗</div>
@@ -206,7 +147,6 @@ for (let i = 0; i < 20; i++) {
     <div class="texto-sobre">✨ toca el sobre ✨</div>
 </div>
 
-<!-- 💌 CARTA -->
 <div id="carta-contenido">
 
     <h1 class="titulo">🤍 Para Patricio</h1>
@@ -215,27 +155,28 @@ for (let i = 0; i < 20; i++) {
 
     <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (1).jpeg">
 
-    <p class="parrafo">Coincidir contigo es mi parte favorita de los días. ✨</p>
+    <p class="parrafo">✨ Coincidir contigo es mi parte favorita de los días 🤍</p>
 
     <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (2).jpeg">
 
-    <p class="parrafo">Me gusta caminar contigo en este momento de la vida. 🌸</p>
+    <p class="parrafo">🌸 No sé qué nos espera, pero me gusta caminar contigo en este momento de la vida 🤍</p>
 
+    <!-- AQUÍ ESTÁ EL CAMBIO -->
     <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (3).jpeg">
 
-    <p class="parrafo">Me gusta descubrirte en cada detalle. 🧸</p>
+    <p class="parrafo">🧸 Sin darme cuenta, te has vuelto parte de mis pensamientos más bonitos 🤍</p>
 
     <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37.jpeg">
 
     <p class="parrafo" style="text-align:center; font-weight:600;">
-        🤍 Gracias por estar en mi historia.
+        🤍 Y aunque no sé qué venga después, me alegra haberte encontrado en este momento de mi vida ✨
     </p>
 
     <div class="contenedor-sorpresa">
-        <p id="texto-sorpresa">Haz clic para ver mensajes secretos 💌</p>
+        <p id="texto-sorpresa">Haz clic en el botón para ver mensajes 💌</p>
     </div>
 
-    <button class="btn-mensaje" onclick="mostrarMensaje()">ver más ✨</button>
+    <button class="btn-mensaje" onclick="mostrarMensaje()">un mensajito para ti ✨</button>
 
 </div>
 
@@ -246,29 +187,24 @@ function abrirSobre() {
     
     setTimeout(() => {
         document.getElementById('contenedor-sobre').style.display = "none";
-        const carta = document.getElementById('carta-contenido');
-        carta.style.display = "block";
-        setTimeout(() => carta.classList.add('mostrar'), 50);
+        document.getElementById('carta-contenido').style.display = "block";
     }, 600);
 }
 
-/* ✔ ARREGLADO: coma faltante corregida */
 const mensajes = [
-"Me haces enojar pero tqm ❤️",
+"Me haces enojar pero TQM ❤️",
 "Gracias por tenerme paciencia 🙈",
 "Espero que te haya gustado 🫶🏼",
-"¡Y ya deja de ser resabiado! 😒",
-"Besitos bebé ❤️"
+"Y ya deja de ser resabiado 😒",
+"Besitos bebé 💋"
 ];
 
 let i = 0;
 
 function mostrarMensaje() {
     const texto = document.getElementById("texto-sorpresa");
-
     texto.innerText = mensajes[i];
     i++;
-
     if (i >= mensajes.length) i = 0;
 }
 
