@@ -158,7 +158,27 @@
             box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
             margin-top: 15px;
             text-decoration: none;
-            transition: transform 0.2s;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        /* Cuadro de mensajes interactivos */
+        .contenedor-sorpresa {
+            background-color: #fff0f3;
+            border: 2px dashed #ffb3c1;
+            border-radius: 16px;
+            padding: 15px;
+            margin-top: 20px;
+            min-height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #texto-sorpresa {
+            font-size: 1.1rem;
+            color: #ff4d6d;
+            font-style: italic;
+            font-weight: 600;
         }
 
         @keyframes latido {
@@ -187,7 +207,7 @@
 
     <div id="carta-contenido">
         <h1 class="titulo">Para Patricio 🤍</h1>
-        <div class="subtitulo">sammm-12.github.io/para-patricio</div>
+        <div class="subtitulo">De Sanyi para Patricio</div>
 
         <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37 (1).jpeg" alt="Pucca 1">
 
@@ -207,8 +227,11 @@
 
         <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37.jpeg" alt="Pucca 4">
 
-        <br>
-        <a href="#" class="btn-mensaje">un mensajito para ti ✨</a>
+        <div class="contenedor-sorpresa">
+            <p id="texto-sorpresa">Haz clic en el botón de abajo para leer mis notitas secretas... 💌</p>
+        </div>
+
+        <button type="button" id="boton-interactivo" class="btn-mensaje" onclick="mostrarSiguienteMensaje()">un mensajito para ti ✨</button>
     </div>
 
     <script>
@@ -226,6 +249,36 @@
                     carta.classList.add('mostrar');
                 }, 50);
             }, 1000);
+        }
+
+        // Lista de mensajes secretos
+        const mensajes = [
+            "Eres mi pensamiento favorito en el día. 💖",
+            "Me encanta cuando sonríes, lo haces todo más bonito. ✨",
+            "Gracias por darme tu calma cuando más lo necesito. 🕊️",
+            "Siempre de Sanyi para Patricio... ¡Te quiero muchísimo! 🤍"
+        ];
+        
+        let indiceMensaje = 0;
+
+        function mostrarSiguienteMensaje() {
+            const elementoTexto = document.getElementById('texto-sorpresa');
+            const boton = document.getElementById('boton-interactivo');
+            
+            // Mostrar el mensaje actual
+            elementoTexto.textContent = mensajes[indiceMensaje];
+            
+            // Avanzar el índice
+            indiceMensaje++;
+            
+            // Cambiar el texto del botón dependiendo de en qué mensaje vamos
+            if (indiceMensaje < mensajes.length) {
+                boton.textContent = "¡Volver a aplastarlo para ver más! 💌";
+            } else {
+                boton.textContent = "Con mucho amor, Sanyi ❤️";
+                // Deshabilitar o reiniciar si deseas, aquí lo reiniciamos por si quiere leerlos de nuevo
+                indiceMensaje = 0; 
+            }
         }
     </script>
 </body>
