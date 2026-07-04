@@ -13,20 +13,36 @@
 }
 
 body {
-    background: linear-gradient(135deg, #ffe6f0, #e6f0ff, #f7e6ff);
     font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     padding: 20px;
+
+    background: linear-gradient(135deg, #ffe6f0, #e6f0ff, #f7e6ff);
+    overflow: hidden;
 }
 
-/* SOBRE */
+/* 💖 CORAZONES FLOTANTES */
+.heart {
+    position: absolute;
+    color: rgba(255, 105, 135, 0.25);
+    animation: float 10s linear infinite;
+    font-size: 20px;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh) scale(0.8);}
+    100% {transform: translateY(-10vh) scale(1.2);}
+}
+
+/* 💌 SOBRE */
 #contenedor-sobre {
     display:flex;
     flex-direction:column;
     align-items:center;
+    z-index: 2;
 }
 
 .sobre {
@@ -35,8 +51,13 @@ body {
     background: linear-gradient(135deg, #ffd6e0, #ffc2d1);
     position: relative;
     border-radius: 0 0 12px 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
     cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.sobre:hover {
+    transform: scale(1.03);
 }
 
 .sobre::before {
@@ -64,30 +85,34 @@ body {
     border-radius:20px;
     font-weight:bold;
     color:#7a5c61;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* CARTA */
+/* 💌 CARTA */
 #carta-contenido {
     display:none;
     max-width:480px;
-    background:white;
-    padding:25px;
+    background: rgba(255,255,255,0.92);
+    padding:28px;
     border-radius:24px;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+
     opacity:0;
-    transform:translateY(40px);
-    transition:0.8s ease;
+    transform: scale(0.95) translateY(40px);
+    transition: 0.9s ease;
+    z-index: 3;
 }
 
 #carta-contenido.mostrar {
     opacity:1;
-    transform:translateY(0);
+    transform: scale(1) translateY(0);
 }
 
 .titulo {
-    font-size:1.6rem;
-    color:#6b4e57;
+    font-size:1.7rem;
+    color:#5a3e44;
     margin-bottom:10px;
 }
 
@@ -100,8 +125,8 @@ body {
 
 .parrafo {
     color:#5c4a4f;
-    margin:20px 0;
-    line-height:1.6;
+    margin:18px 0;
+    line-height:1.7;
     text-align:justify;
 }
 
@@ -109,9 +134,10 @@ body {
     width:100%;
     border-radius:16px;
     margin:15px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* BOTÓN */
+/* 💌 BOTÓN */
 .btn-mensaje {
     background: linear-gradient(135deg,#ff8fab,#ffb3c6);
     border:none;
@@ -121,14 +147,20 @@ body {
     cursor:pointer;
     font-weight:bold;
     margin-top:15px;
+    transition: 0.3s;
 }
 
+.btn-mensaje:hover {
+    transform: scale(1.05);
+}
+
+/* 💬 MENSAJE */
 .contenedor-sorpresa {
     margin-top:15px;
     background:#fff0f5;
     padding:15px;
     border-radius:16px;
-    border:1px dashed #ffb3c6;
+    border:1px solid rgba(255,179,198,0.4);
 }
 
 #texto-sorpresa {
@@ -136,6 +168,7 @@ body {
     font-weight:600;
 }
 
+/* ✨ animación corazón */
 @keyframes latido {
     0% {transform:translate(-50%,-50%) scale(1);}
     50% {transform:translate(-50%,-50%) scale(1.15);}
@@ -146,7 +179,20 @@ body {
 
 <body>
 
-<!-- SOBRE -->
+<!-- 💖 corazones -->
+<script>
+for (let i = 0; i < 18; i++) {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "🤍";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = (6 + Math.random() * 6) + "s";
+    h.style.fontSize = (12 + Math.random() * 18) + "px";
+    document.body.appendChild(h);
+}
+</script>
+
+<!-- 💌 SOBRE -->
 <div id="contenedor-sobre">
     <div class="sobre" onclick="abrirSobre()">
         <div class="corazon-cierre">💗</div>
@@ -154,7 +200,7 @@ body {
     <div class="texto-sobre">✨ toca el sobre ✨</div>
 </div>
 
-<!-- CARTA -->
+<!-- 💌 CARTA -->
 <div id="carta-contenido">
 
     <h1 class="titulo">🤍 Para Patricio</h1>
@@ -174,12 +220,12 @@ body {
 
     <img class="imagen-pucca" src="WhatsApp Image 2026-07-04 at 14.10.37.jpeg">
 
-    <!-- MENSAJE FINAL BONITO -->
     <p class="parrafo" style="text-align:center; font-weight:600;">
         🤍 Y aunque no sé qué pase después, me alegra que seas parte de mi historia.  
         Gracias por estar aquí, por quedarte, y por ser tú.
     </p>
 
+    <!-- 💬 MENSAJES -->
     <div class="contenedor-sorpresa">
         <p id="texto-sorpresa">Haz clic para ver mensajes secretos 💌</p>
     </div>
@@ -201,12 +247,12 @@ function abrirSobre() {
     }, 600);
 }
 
+/* 💌 MENSAJES BOTÓN */
 const mensajes = [
-"💗 Gracias por tenerme paciencia.",
-"✨ Eres de esas personas que se quedan en el corazón sin esfuerzo.",
-"🌷 Si algo bueno me pasó últimamente, eres tú.",
-"🌙 Me haces sentir en calma incluso en días raros.",
-"🤍 No eres cualquier persona para mí."
+"1. Me haces enojar pero tqm ❤️",
+"2. Gracias por soportarme mis cambios de humor JAAJAJA 🙈",
+"3. Espero te haya gustado 🫶🏼",
+"4. ¡Y ya deja de ser tan resabiado quieres! 😒"
 ];
 
 let i = 0;
