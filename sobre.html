@@ -45,7 +45,7 @@
             .sobre:hover {
                 transform: scale(1.05);
             }
-            /* Solapa del sobre */
+
             .sobre::before {
                 content: '';
                 position: absolute;
@@ -58,7 +58,7 @@
                 transition: transform 0.5s ease 0.3s;
                 z-index: 3;
             }
-        /* Corazón para cerrar el sobre */
+
         .corazon-cierre {
             position: absolute;
             top: 40%;
@@ -82,15 +82,14 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* Animación cuando se abre */
         .sobre.abierto::before {
             transform: rotateX(180deg);
             z-index: 1;
         }
 
-        /* --- ESTILOS DE LA CARTA (TU DISEÑO DE ANOCHE) --- */
+        /* --- ESTILOS DE LA CARTA --- */
         #carta-contenido {
-            display: none; /* Escondido al principio */
+            display: none;
             width: 100%;
             max-width: 450px;
             background: white;
@@ -162,10 +161,6 @@
             transition: transform 0.2s;
         }
 
-            .btn-mensaje:hover {
-                transform: scale(1.05);
-            }
-
         @keyframes latido {
             0% {
                 transform: translate(-50%, -50%) scale(1);
@@ -222,15 +217,11 @@
             const contenedorSobre = document.getElementById('contenedor-sobre');
             const carta = document.getElementById('carta-contenido');
 
-            // 1. Añade la animación de abrir la solapa
             sobre.classList.add('abierto');
 
-            // 2. Espera a que termine la animación del sobre para cambiar de pantalla
             setTimeout(() => {
-                contenedorSobre.style.display = 'none'; // Desaparece el sobre
-                carta.style.display = 'block'; // Muestra la carta estructurada
-
-                // Pequeño delay para que se active el efecto de subida suave
+                contenedorSobre.style.display = 'none';
+                carta.style.display = 'block';
                 setTimeout(() => {
                     carta.classList.add('mostrar');
                 }, 50);
