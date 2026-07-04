@@ -12,6 +12,7 @@
     padding: 0;
 }
 
+/* ✅ ARREGLO IMPORTANTE: SCROLL */
 body {
     font-family: 'Segoe UI', sans-serif;
     min-height: 100vh;
@@ -21,10 +22,12 @@ body {
     padding: 20px;
 
     background: linear-gradient(135deg, #ffe6f0, #e6f0ff, #f7e6ff);
-    overflow: hidden;
+
+    overflow-x: hidden;
+    overflow-y: auto; /* ✔ ahora sí puedes deslizar */
 }
 
-/* 💖 CORAZONES FLOTANTES */
+/* 💖 CORAZONES */
 .heart {
     position: absolute;
     color: rgba(255, 105, 135, 0.25);
@@ -168,7 +171,7 @@ body {
     font-weight:600;
 }
 
-/* ✨ animación corazón */
+/* ✨ ANIMACIÓN */
 @keyframes latido {
     0% {transform:translate(-50%,-50%) scale(1);}
     50% {transform:translate(-50%,-50%) scale(1.15);}
@@ -179,7 +182,7 @@ body {
 
 <body>
 
-<!-- 💖 corazones -->
+<!-- 💖 CORAZONES -->
 <script>
 for (let i = 0; i < 18; i++) {
     const h = document.createElement("div");
@@ -225,7 +228,6 @@ for (let i = 0; i < 18; i++) {
         Gracias por estar aquí, por quedarte, y por ser tú.
     </p>
 
-    <!-- 💬 MENSAJES -->
     <div class="contenedor-sorpresa">
         <p id="texto-sorpresa">Haz clic para ver mensajes secretos 💌</p>
     </div>
@@ -247,7 +249,6 @@ function abrirSobre() {
     }, 600);
 }
 
-/* 💌 MENSAJES BOTÓN */
 const mensajes = [
 "1. Me haces enojar pero tqm ❤️",
 "2. Gracias por soportarme mis cambios de humor JAAJAJA 🙈",
