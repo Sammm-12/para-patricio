@@ -173,11 +173,10 @@ body {
     </p>
 
     <div class="contenedor-sorpresa">
-        <p id="texto-sorpresa">Haz clic en el botón para ver mensajes 💌</p>
+        <p id="texto-sorpresa">🤍 Tengo unos mensajitos escondidos para ti.</p>
     </div>
 
-    <button class="btn-mensaje" onclick="mostrarMensaje()">un mensajito para ti ✨</button>
-
+    <button class="btn-mensaje" onclick="mostrarMensaje()">✨ Descúbrelos</button>
 </div>
 
 <script>
@@ -202,10 +201,21 @@ const mensajes = [
 let i = 0;
 
 function mostrarMensaje() {
+
     const texto = document.getElementById("texto-sorpresa");
+    const boton = document.querySelector(".btn-mensaje");
+
     texto.innerText = mensajes[i];
+
     i++;
-    if (i >= mensajes.length) i = 0;
+
+    if (i < mensajes.length) {
+        boton.innerText = "💌 Toca otra vez";
+    } else {
+        boton.innerText = "🤍 Volver a leer";
+        i = 0;
+    }
+
 }
 
 </script>
